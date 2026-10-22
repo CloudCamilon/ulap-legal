@@ -32,7 +32,7 @@
 </head>
 <body>
   <h1>Privacy Policy for Ulap</h1>
-  <p class="meta"><strong>Effective date:</strong> June 7, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> August 12, 2026</p>
+  <p class="meta"><strong>Effective date:</strong> June 7, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> October 23, 2026</p>
 
   <p class="intro">Ulap (“Ulap,” “we,” “us,” or “our”) is a personal-finance app for tracking your own money. This policy explains what we collect, why, who we share it with, and the choices and rights you have. We’ve tried to write it in plain language.</p>
   <p>Ulap is operated by <strong>Vincent Ulap Camilon</strong>, based in the <strong>Philippines</strong>. For any privacy question or request, contact us at <strong>skylabcloud@gmail.com</strong>.</p>
@@ -48,13 +48,14 @@
   <ul>
     <li><strong>Account details.</strong> Your email address when you sign up with email and password, or the identity shared by <strong>Google</strong> or <strong>Apple</strong> when you choose “Continue with Google/Apple.” If you use Apple’s “Hide My Email,” we only receive Apple’s private relay address.</li>
     <li><strong>Your financial entries.</strong> The accounts you add (e.g. GCash, BPI, Maya), and the transactions, savings goals, and budget split you create. Amounts, categories, dates, and any notes you type are stored so the app can show them back to you. Notes, names, and amounts are encrypted on your device before we ever see them — see § 7 for how that works and what it means if you lose your recovery PIN.</li>
-    <li><strong>Chat input (optional feature).</strong> If you log a transaction by typing a message to the in-app assistant, the text of that message is processed to extract the transaction (see § 3, Google Gemini).</li>
+    <li><strong>Bills you split with other people (KKB, in beta).</strong> When you split a bill, you can add the people you split it with under a nickname you choose (for example “Mia”), put them in a group (for example “Boracay trip”), and record each person’s share and what they’ve paid back. Nicknames, group names, bill titles, and every amount are encrypted on your device before they reach us, like your other entries (see § 7). We can’t read who these people are: we only see, without names, how many people are in a bill or group and which bills and payments belong together. Please use a nickname or first name only, and never add anyone’s phone number, email, or other details. Ulap never contacts the people you add; they can’t see anything and don’t need the app. Sharing a bill with friends inside Ulap is not available.</li>
+    <li><strong>Chat input (optional feature).</strong> If you log a transaction by typing a message to the in-app assistant, the text of that message is processed to extract the transaction. When our own parser can’t understand a message, it is sent to Google Gemini together with the names of your accounts and the list of categories, so it can match “paid with GCash” to your GCash account (see § 3). Your KKB nicknames, group names, and bill titles are never sent.</li>
   </ul>
   <h3>2.2 Information collected automatically (only with your consent)</h3>
   <p>Crash reporting and product analytics are <strong>off unless you allow them</strong> via the “Help us improve Ulap” setting in your profile. When enabled, we collect:</p>
   <ul>
     <li><strong>Crash and error reports</strong> (via Sentry): technical details such as the error, your device model, and OS version, so we can fix bugs. Before any report leaves your device, we <strong>automatically remove peso amounts and email addresses</strong> from it.</li>
-    <li><strong>Anonymous usage events</strong> (via PostHog): which core actions happen — for example that a sign-up, onboarding step, app open, or transaction occurred, and whether a transaction was added by chat or manually. These events are tied to a random identifier, <strong>never your email</strong>, and <strong>never include the amount, category, or note</strong> of any transaction.</li>
+    <li><strong>Anonymous usage events</strong> (via PostHog): which core actions happen — for example that a sign-up, onboarding step, app open, or transaction occurred, and whether a transaction was added by chat or manually. These events are tied to a random identifier, <strong>never your email</strong>, and <strong>never include the amount, category, or note</strong> of any transaction. If you use KKB, events also note that a split, settle-up, or group happened, how many people it involved, and whether it was settled in full, <strong>never any names, titles, or amounts</strong>.</li>
   </ul>
   <p>You can turn this off at any time in the app; doing so stops further collection immediately.</p>
   <h3>2.3 Information we keep on your device only</h3>
@@ -69,7 +70,7 @@
     <thead><tr><th>Provider</th><th>Purpose</th><th>Data involved</th></tr></thead>
     <tbody>
       <tr><td><strong>Supabase</strong></td><td>Database, authentication, and hosting of your account and financial data</td><td>Email, financial entries, profile. Stored in the Singapore region.</td></tr>
-      <tr><td><strong>Google (Gemini API)</strong></td><td>Parsing your chat message into a transaction, when you use chat entry</td><td>The text of the chat message you send</td></tr>
+      <tr><td><strong>Google (Gemini API)</strong></td><td>Parsing your chat message into a transaction, when our own parser can’t</td><td>The text of the chat message you send, plus your account names and the category list. Never your KKB names or bills.</td></tr>
       <tr><td><strong>Google / Apple</strong></td><td>“Sign in with Google / Apple” authentication</td><td>Your identity from the provider you choose</td></tr>
       <tr><td><strong>Sentry</strong></td><td>Crash and error reporting</td><td>Technical/error data, with amounts and emails removed (consent-gated)</td></tr>
       <tr><td><strong>PostHog</strong></td><td>Anonymous product analytics</td><td>Usage events tied to a random ID, no financial details (consent-gated)</td></tr>
@@ -84,13 +85,15 @@
   </ul>
 
   <h2>5. How long we keep it</h2>
-  <p>We keep your account and financial data for as long as your account exists. When you delete your account (see § 6), your data is <strong>permanently and immediately deleted</strong> from our database. Anonymous analytics events that contain no personal identifiers may persist in aggregate.</p>
+  <p>We keep your account and financial data, including your KKB bills, people, and groups, for as long as your account exists. When you delete your account (see § 6), your data is <strong>permanently and immediately deleted</strong> from our database. Anonymous analytics events that contain no personal identifiers may persist in aggregate.</p>
 
   <h2>6. Your rights and choices</h2>
   <p>You can, at any time:</p>
   <ul>
     <li><strong>Access and correct</strong> your data — most of it is visible and editable directly in the app.</li>
-    <li><strong>Delete your account and all data</strong> — go to <strong>Profile → Delete my account</strong>. This cascades a permanent deletion of your accounts, transactions, goals, and profile, and cannot be undone.</li>
+    <li><strong>Delete your account and all data</strong> — go to <strong>Profile → Delete my account</strong>. This cascades a permanent deletion of your accounts, transactions, goals, KKB bills, people and groups, and profile, and cannot be undone.</li>
+    <li><strong>Remove KKB entries.</strong> You can delete any KKB bill in the app, which removes every share and payment recorded on it. Removing a person or a group from your list isn’t in the app yet; until it is, deleting your account (or “Start fresh”) removes them all.</li>
+    <li><strong>If someone added you to KKB.</strong> Your nickname is encrypted on their phone, so we can’t see it or search for it. The Ulap user who added you is the one who can remove your entries; you can still contact us with any concern.</li>
     <li><strong>Withdraw analytics consent</strong> — toggle off “Help us improve Ulap” in your profile.</li>
     <li><strong>Request a copy of your data</strong>, or raise any other privacy concern, by emailing <strong>skylabcloud@gmail.com</strong>. Note: because notes, names, and amounts are encrypted on your device (see § 7), we can only export what reaches our servers — for those fields, that's unreadable ciphertext, not the original numbers or text. The complete, readable version of your data is what you see inside the app.</li>
   </ul>
@@ -98,7 +101,7 @@
 
   <h2>7. How we protect your data</h2>
   <ul>
-    <li><strong>Your notes, names, and amounts are encrypted on your device.</strong> Since July 2026, transaction notes, account and savings-goal names, and every amount and balance are encrypted on your phone before they’re sent to us. We store only unreadable ciphertext for these fields and cannot read them ourselves — not even to help with support. Only the transaction date and category stay in a form we can see, since the app needs those to build your charts and summaries.</li>
+    <li><strong>Your notes, names, and amounts are encrypted on your device.</strong> Since July 2026, transaction notes, account and savings-goal names, and every amount and balance are encrypted on your phone before they’re sent to us. Since October 2026, so are KKB nicknames, group names, bill titles, and shares. We store only unreadable ciphertext for these fields and cannot read them ourselves — not even to help with support. Only the transaction date and category stay in a form we can see, since the app needs those to build your charts and summaries.</li>
     <li><strong>Your recovery PIN protects your access, not ours.</strong> During setup you choose a recovery PIN, which protects a copy of your encryption key so you can restore your data on a new device. We never see or store your PIN itself. Because of this, <strong>if you forget your PIN, we cannot recover your data for you</strong> — not even to help you regain access. The only way forward is to permanently delete that data and start fresh. Please keep your recovery PIN somewhere safe.</li>
     <li>All data is transmitted over encrypted connections (HTTPS).</li>
     <li>Database access is restricted per user with row-level security, so you can only ever access your own records.</li>
